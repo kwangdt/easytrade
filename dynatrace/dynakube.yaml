@@ -79,6 +79,13 @@ spec:
       # Example: {major.minor.release}, e.g., "1.200.0"
       #
       # version:
+        tolerations:
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/master
+          operator: Exists
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/control-plane
+          operator: Exists
 
       # Optional: If you want to use CSIDriver; disable if your cluster does not have 'nodes' to fall back to the volume approach.
       # Defaults to false
